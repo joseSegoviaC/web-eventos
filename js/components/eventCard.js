@@ -1,3 +1,5 @@
+import { events } from '../data/events.js';
+
 export function createEventCard(event) {
     return `
         <div class="group flex flex-col overflow-hidden rounded-lg bg-white/5 dark:bg-white/5 shadow-lg hover:shadow-primary/50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
@@ -53,14 +55,60 @@ function attachEventListeners(container) {
     buttons.forEach(button => {
         button.addEventListener('click', (e) => {
             const eventId = e.currentTarget.dataset.eventId;
-            handleEventClick(eventId);
+            handleEventClick(parseInt(eventId)); // Parse eventId to integer
         });
     });
+
+    // Attach event listener to close button
+    const closeButton = document.querySelector('#ticketModal button');
+    if (closeButton) {
+        closeButton.addEventListener('click', closeTicketModal);
+    }
 }
 
 function handleEventClick(eventId) {
-    console.log(`Evento seleccionado: ${eventId}`);
-    // Aquí puedes agregar lógica para mostrar detalles del evento
-    // Por ejemplo: abrir un modal, redirigir a otra página, etc.
-    alert(`Ver detalles del evento #${eventId}`);
+    const event = events.find(e => e.id === eventId);
+    if (!event) {
+        console.error(`Evento con ID ${eventId} no encontrado.`);
+        return;
+    }
+
+    const modal = document.getElementById('ticketModal');
+    const modalTitle = document.getElementById('modal-event-title');
+    const modalTicketTypes = document.getElementById('modal-ticket-types');
+    const whatsappBuyLink = document.getElementById('whatsapp-buy-link');
+
+    modalTitle.textContent = event.title;
+    modalTicketTypes.innerHTML = ''; // Clear previous ticket types
+
+    event.tickets.forEach(ticket => {
+        const ticketHtml = `
+            <div
+                class="flex items-center justify-between p-4 rounded-lg bg-white/5 border border-dashed border-white/20 hover:border-primary hover:bg-primary/10 transition-all duration-300">
+                <div class="flex items-center gap-4">
+                    <span class="material-symbols-outlined text-primary text-3xl">confirmation_number</span>
+                    <div>
+                        <h4 class="font-bold text-white">${ticket.type}</h4>
+                        <p class="text-sm text-white/60">${ticket.description}</p>
+                    </div>
+                </div>
+                <span class="text-lg font-bold text-white">${ticket.price.toFixed(2)}</span>
+            </div>
+        `;
+        modalTicketTypes.innerHTML += ticketHtml;
+    });
+
+    const whatsappMessage = encodeURIComponent(`Hola, quisiera comprar una entrada para el evento ${event.title} (${event.date} en ${event.location}).`);
+    whatsappBuyLink.href = `https://wa.me/?text=${whatsappMessage}`;
+
+    modal.classList.remove('hidden');
+    modal.classList.add('is-active');
+}
+
+function closeTicketModal() {
+    const modal = document.getElementById('ticketModal');
+    modal.classList.remove('is-active');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300); // Match this duration with the CSS transition duration
 }
