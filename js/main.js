@@ -18,24 +18,24 @@ function initApp() {
 }
 
 function initHeaderInteractions() {
-    const searchBtn = document.querySelector('button .material-symbols-outlined:has-text("search")');
+    const searchBtn = document.querySelector('#search-button');
     if (searchBtn) {
-        searchBtn.closest('button').addEventListener('click', () => {
+        searchBtn.addEventListener('click', () => {
             console.log('🔍 Búsqueda activada');
             // Aquí puedes implementar la lógica de búsqueda
         });
     }
     
-    const favoriteBtn = document.querySelector('button .material-symbols-outlined:has-text("favorite_border")');
+    const favoriteBtn = document.querySelector('#favorite-button');
     if (favoriteBtn) {
-        favoriteBtn.closest('button').addEventListener('click', () => {
+        favoriteBtn.addEventListener('click', () => {
             console.log('❤️ Favoritos activados');
         });
     }
     
-    const accountBtn = document.querySelector('button .material-symbols-outlined:has-text("account_circle")');
+    const accountBtn = document.querySelector('#account-button');
     if (accountBtn) {
-        accountBtn.closest('button').addEventListener('click', () => {
+        accountBtn.addEventListener('click', () => {
             console.log('👤 Cuenta activada');
             // Aquí puedes implementar la lógica de cuenta de usuario
         });

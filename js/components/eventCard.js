@@ -79,7 +79,7 @@ function handleEventClick(eventId) {
     const whatsappBuyLink = document.getElementById('whatsapp-buy-link');
 
     modalTitle.textContent = event.title;
-    modalTicketTypes.innerHTML = ''; // Clear previous ticket types
+    modalTicketTypes.innerHTML = '';
 
     event.tickets.forEach(ticket => {
         const ticketHtml = `
@@ -98,8 +98,9 @@ function handleEventClick(eventId) {
         modalTicketTypes.innerHTML += ticketHtml;
     });
 
+    const phoneNumber = "51968424445";
     const whatsappMessage = encodeURIComponent(`Hola, quisiera comprar una entrada para el evento ${event.title} (${event.date} en ${event.location}).`);
-    whatsappBuyLink.href = `https://wa.me/?text=${whatsappMessage}`;
+    whatsappBuyLink.href = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
 
     modal.classList.remove('hidden');
     modal.classList.add('is-active');
@@ -110,5 +111,5 @@ function closeTicketModal() {
     modal.classList.remove('is-active');
     setTimeout(() => {
         modal.classList.add('hidden');
-    }, 300); // Match this duration with the CSS transition duration
+    }, 300);
 }

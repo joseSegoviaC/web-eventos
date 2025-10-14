@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html class="dark" lang="es">
+<html class="dark scroll-smooth" lang="es">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Web-Eventos</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎟️</text></svg>">
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
@@ -55,22 +56,19 @@
                             <h2 class="text-lg font-bold">WEB-EVENTOS</h2>
                         </div>
                         <nav class="hidden md:flex items-center gap-6">
-                            <a class="text-sm font-medium text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors"
-                                href="#">Eventos</a>
-                            <a class="text-sm font-medium text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors"
-                                href="#">Testimonios</a>
-                            <a class="text-sm font-medium text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors"
-                                href="#">Pruebas</a>
+                            <a class="text-sm font-medium text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors" href="#eventos">Eventos</a>
+                            <a class="text-sm font-medium text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors" href="#testimonios">Testimonios</a>
+                            <a class="text-sm font-medium text-black/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors" href="#pruebas">Pruebas</a>
                         </nav>
-                    </div>
+                    </div> 
                     <!-- <div class="flex items-center gap-2">
-                        <button class="flex items-center justify-center rounded-full h-10 w-10 bg-primary/10 dark:bg-primary/20 text-black/80 dark:text-white/80 hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+                        <button id="search-button" class="flex items-center justify-center rounded-full h-10 w-10 bg-primary/10 dark:bg-primary/20 text-black/80 dark:text-white/80 hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
                             <span class="material-symbols-outlined text-lg">search</span>
                         </button>
-                        <button class="flex items-center justify-center rounded-full h-10 w-10 bg-primary/10 dark:bg-primary/20 text-black/80 dark:text-white/80 hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+                        <button id="favorite-button" class="flex items-center justify-center rounded-full h-10 w-10 bg-primary/10 dark:bg-primary/20 text-black/80 dark:text-white/80 hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
                             <span class="material-symbols-outlined text-lg">favorite_border</span>
                         </button>
-                        <button class="flex items-center justify-center rounded-full h-10 w-10 bg-primary/10 dark:bg-primary/20 text-black/80 dark:text-white/80 hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+                        <button id="account-button" class="flex items-center justify-center rounded-full h-10 w-10 bg-primary/10 dark:bg-primary/20 text-black/80 dark:text-white/80 hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
                             <span class="material-symbols-outlined text-lg">account_circle</span>
                         </button>
                     </div> -->
@@ -80,18 +78,20 @@
             <!-- Main Content -->
             <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow">
                 <div class="flex flex-col gap-12">
-                    <h1
-                        class="text-4xl md:text-5xl font-extrabold text-center text-black dark:text-white tracking-tight">
-                        Eventos Disponibles
-                    </h1>
-
-                    <!-- Events Grid - Se llena dinámicamente -->
-                    <div id="events-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                        <!-- Las tarjetas de eventos se insertan aquí -->
-                    </div>
+                    <section id="eventos" class="flex flex-col gap-12">
+                        <h1
+                            class="text-4xl md:text-5xl font-extrabold text-center text-black dark:text-white tracking-tight">
+                            Eventos Disponibles
+                        </h1>
+    
+                        <!-- Events Grid - Se llena dinámicamente -->
+                        <div id="events-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                            <!-- Las tarjetas de eventos se insertan aquí -->
+                        </div>
+                    </section>
 
                     <!-- Testimonials Section -->
-                    <section class="py-16">
+                    <section id="testimonios" class="py-16">
                         <div class="flex flex-col gap-12">
                             <h2 class="text-4xl font-extrabold text-center text-black dark:text-white tracking-tight">
                                 Lo que dicen nuestros clientes
@@ -103,7 +103,7 @@
                     </section>
 
                     <!-- Sales Screenshots Section -->
-                    <section class="py-16">
+                    <section id="pruebas" class="py-16">
                         <div class="flex flex-col gap-12">
                             <h2 class="text-4xl font-extrabold text-center text-black dark:text-white tracking-tight">
                                 Capturas de Ventas
