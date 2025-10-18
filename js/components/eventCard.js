@@ -3,12 +3,17 @@ import { events } from '../data/events.js';
 export function createEventCard(event) {
     return `
         <div class="group flex flex-col overflow-hidden rounded-lg bg-white/5 dark:bg-white/5 shadow-lg hover:shadow-primary/50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
-            <img 
-                alt="${event.title}" 
-                class="w-full h-48 object-cover object-top"
-                src="${event.image}" 
-                loading="lazy"
-            />
+            <div class="image-container">
+                <img 
+                    alt="${event.title}" 
+                    class="w-full h-48 object-cover object-top"
+                    src="${event.image}" 
+                    loading="lazy"
+                />
+                <button class="expand-button" data-image="${event.image}">
+                    <span class="material-symbols-outlined">expand_content</span>
+                </button>
+            </div>
             <div class="p-4 flex flex-col flex-grow bg-background-light dark:bg-background-dark">
                 <h3 class="text-lg font-bold text-black dark:text-white mb-2">
                     ${event.title}
