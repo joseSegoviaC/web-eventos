@@ -18,7 +18,7 @@ function calculateScrollbarWidth() {
 function initApp() {
     console.log('🎫 Web-Eventos - Inicializando aplicación...');
     
-    calculateScrollbarWidth(); // Calculate and set scrollbar width
+    calculateScrollbarWidth();
 
     renderEvents(events, 'events-grid');
     console.log(`✅ ${events.length} eventos cargados`);
@@ -43,7 +43,6 @@ function initHeaderInteractions() {
     if (searchBtn) {
         searchBtn.addEventListener('click', () => {
             console.log('🔍 Búsqueda activada');
-            // Aquí puedes implementar la lógica de búsqueda
         });
     }
     
@@ -58,7 +57,6 @@ function initHeaderInteractions() {
     if (accountBtn) {
         accountBtn.addEventListener('click', () => {
             console.log('👤 Cuenta activada');
-            // Aquí puedes implementar la lógica de cuenta de usuario
         });
     }
 }
