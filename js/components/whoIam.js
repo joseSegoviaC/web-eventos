@@ -10,21 +10,24 @@ function createWhoIamSection() {
         const card = document.createElement('div');
         card.classList.add(
             'bg-white',
-            'dark:bg-gray-800',
-            'rounded-lg',
-            'shadow-lg',
-            'p-6',
+            'dark:bg-background-dark',
+            'rounded-xl',
+            'shadow-xl',
+            'shadow-primary/20',
+            'p-8',
             'transform',
-            'hover:scale-105',
+            'hover:-translate-y-2',
             'transition-all',
             'duration-300',
-            'ease-in-out'
+            'ease-in-out',
+            'border',
+            'border-white/10'
         );
 
         const title = document.createElement('h3');
         title.classList.add(
-            'text-2xl',
-            'font-bold',
+            'text-3xl',
+            'font-extrabold',
             'text-primary',
             'mb-4',
             'capitalize'
