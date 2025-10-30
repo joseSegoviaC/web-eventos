@@ -144,3 +144,22 @@ body {
         flex: 0 0 100%; /* 1 image per page on extra small screens */
     }
 }
+
+/* Who I Am Section Styles */
+#who-iam-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    #who-iam-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    #who-iam-content {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

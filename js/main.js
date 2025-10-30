@@ -4,6 +4,7 @@ import { screens } from './data/screens.js';
 import { renderEvents } from './components/eventCard.js';
 import { renderTestimonials } from './components/testimonialCard.js';
 import { renderCarousel } from './components/carousel.js';
+import createWhoIamSection from './components/whoIam.js';
 
 function calculateScrollbarWidth() {
     const scrollDiv = document.createElement('div');
@@ -27,6 +28,9 @@ function initApp() {
 
     renderCarousel(screens, 'carousel-container', 'carousel-track', 'carousel-prev', 'carousel-next');
     console.log(`✅ ${screens.length} capturas de ventas cargadas en el carrusel`);
+
+    createWhoIamSection();
+    console.log('✅ Sección Quien Soy cargada');
     
     initHeaderInteractions();
     initImageModal();
