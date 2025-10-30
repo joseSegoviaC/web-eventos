@@ -1,16 +1,32 @@
 import { events } from './data/events.js';
 import { testimonials } from './data/testimonials.js';
+import { screens } from './data/screens.js';
 import { renderEvents } from './components/eventCard.js';
 import { renderTestimonials } from './components/testimonialCard.js';
+import { renderCarousel } from './components/carousel.js';
+
+function calculateScrollbarWidth() {
+    const scrollDiv = document.createElement('div');
+    scrollDiv.style.cssText = 'width: 99px; height: 99px; overflow: scroll; position: absolute; top: -9999px;';
+    document.body.appendChild(scrollDiv);
+    const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+}
 
 function initApp() {
     console.log('🎫 Web-Eventos - Inicializando aplicación...');
     
+    calculateScrollbarWidth(); // Calculate and set scrollbar width
+
     renderEvents(events, 'events-grid');
     console.log(`✅ ${events.length} eventos cargados`);
     
     renderTestimonials(testimonials, 'testimonials-grid');
     console.log(`✅ ${testimonials.length} testimonios cargados`);
+
+    renderCarousel(screens, 'carousel-container', 'carousel-track', 'carousel-prev', 'carousel-next');
+    console.log(`✅ ${screens.length} capturas de ventas cargadas en el carrusel`);
     
     initHeaderInteractions();
     initImageModal();

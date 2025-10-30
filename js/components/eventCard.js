@@ -84,6 +84,11 @@ function handleEventClick(eventId) {
     const modalTicketTypes = document.getElementById('modal-ticket-types');
     const whatsappBuyLink = document.getElementById('whatsapp-buy-link');
 
+    console.log('Event data:', event);
+    console.log('Modal title element:', modalTitle);
+    console.log('Modal ticket types element:', modalTicketTypes);
+    console.log('Whatsapp buy link element:', whatsappBuyLink);
+
     modalTitle.textContent = event.title;
     modalTicketTypes.innerHTML = '';
 
@@ -102,6 +107,7 @@ function handleEventClick(eventId) {
             </div>
         `;
         modalTicketTypes.innerHTML += ticketHtml;
+        console.log('Generated ticket HTML:', ticketHtml);
     });
 
     const phoneNumber = "51968424445";
